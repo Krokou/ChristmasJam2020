@@ -32,6 +32,7 @@ public class pause : MonoBehaviour
         }
         else
         {
+            print("Kewl");
             Time.timeScale = 1;
             AudioListener.pause = false;
         }
