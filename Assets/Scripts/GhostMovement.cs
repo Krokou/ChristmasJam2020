@@ -24,31 +24,34 @@ public class GhostMovement : MonoBehaviour
     private void OnEnable()
     {
         frame = 0;
-        keys = player.GetComponent<PlayerController>().GetRecordedMovement();
+        keys = new List<List<KeyCode>>(player.GetComponent<PlayerController>().GetRecordedMovement());
     }
 
     private void FixedUpdate()
     {
-        rb.velocity = Vector3.zero;
-        foreach (var key in keys[frame])
+        if (frame < keys.Count)
         {
-            switch (key)
+            rb.velocity = Vector3.zero;
+            foreach (var key in keys[frame])
             {
-                case KeyCode.W:
-                    rb.velocity = new Vector3(rb.velocity.x, 0, 10);
-                    break;
-                case KeyCode.S:
-                    rb.velocity = new Vector3(rb.velocity.x, 0, -10);
-                    break;
-                case KeyCode.A:
-                    rb.velocity = new Vector3(-10, 0, rb.velocity.z);
-                    break;
-                case KeyCode.D:
-                    rb.velocity = new Vector3(10, 0, rb.velocity.z);
-                    break;
-                default:
-                    print("Something not right");
-                    break;
+                switch (key)
+                {
+                    case KeyCode.W:
+                        rb.velocity = new Vector3(rb.velocity.x, 0, 10);
+                        break;
+                    case KeyCode.S:
+                        rb.velocity = new Vector3(rb.velocity.x, 0, -10);
+                        break;
+                    case KeyCode.A:
+                        rb.velocity = new Vector3(-10, 0, rb.velocity.z);
+                        break;
+                    case KeyCode.D:
+                        rb.velocity = new Vector3(10, 0, rb.velocity.z);
+                        break;
+                    default:
+                        print("Something not right");
+                        break;
+                }
             }
         }
         frame++;
