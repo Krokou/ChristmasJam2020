@@ -18,6 +18,8 @@ public class CheckingSuffOutScript : MonoBehaviour
         transform.RotateAround(forward, Vector3.right, 10f);
 
         transform.position += new Vector3(0.01f, 0f, 0f);
+
+
     }
 
     private void OnTriggerEnter(Collider other)
