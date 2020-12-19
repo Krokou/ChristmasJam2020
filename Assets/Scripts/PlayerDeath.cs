@@ -18,7 +18,10 @@ public class PlayerDeath : MonoBehaviour
 
     private void OnTriggerEnter(Collider col)
     {
-        if col.tag == "Ghost";
-        die();
+        if (col.tag == "Ghost")
+        {
+
+        }
+        //die();
     }
 }
