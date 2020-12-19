@@ -15,13 +15,13 @@ public class CheckingSuffOutScript : MonoBehaviour
     {
         Vector3 forward = transform.position + transform.forward;
         Vector3 newForward = transform.eulerAngles;
-        transform.RotateAround(forward, Vector3.right, 10);
+        transform.RotateAround(forward, Vector3.right, 10f);
 
-        // transform.position += new Vector3(0.01f, 0f, 0f);
+        transform.position += new Vector3(0.01f, 0f, 0f);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-
+        transform.position -= Vector3.forward;
     }
 }
