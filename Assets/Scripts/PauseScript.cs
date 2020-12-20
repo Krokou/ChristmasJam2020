@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class pause : MonoBehaviour
+public class PauseScript : MonoBehaviour
 
 {
     public static bool gameIsPaused;
@@ -32,6 +32,7 @@ public class pause : MonoBehaviour
         }
         else
         {
+            print("Kewl");
             Time.timeScale = 1;
             AudioListener.pause = false;
         }
