@@ -2,26 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerControllerMain : MonoBehaviour
 {
+    private Rigidbody rb;
     private GameObject animChar;
     private Transform tranChar;
     private Animator anim;
 
-    public static int RobotIndex = 0;
-    private static int frame = 0;
-    private Rigidbody rb;
-    public static List<List<KeyCode>> recordedMovement = new List<List<KeyCode>>();
 
-    public static List<List<KeyCode>> GetRecordedMovement()
+    private int frame = 0;
+    private List<List<KeyCode>> recordedMovement = new List<List<KeyCode>>();
+
+    public List<List<KeyCode>> GetRecordedMovement()
     {
         return recordedMovement;
     }
 
-    public static void RestartGhostRecord()
+
+    void Start()
     {
-        recordedMovement = new List<List<KeyCode>>();
-        frame = 0;
+        animChar = GameObject.FindWithTag("AnimatedCharacter");
+        anim = animChar.GetComponent<Animator>();
+
+        tranChar = animChar.GetComponent<Transform>();
+
+        rb = GetComponent<Rigidbody>();
     }
 
     private void RecordMovement(KeyCode key)
@@ -29,29 +34,13 @@ public class PlayerController : MonoBehaviour
         recordedMovement[frame].Add(key);
     }
 
-
-
-    void Start()
-    {
-        rb = GetComponent<Rigidbody>();
-        RestartGhostRecord();
-
-        animChar = GameObject.FindWithTag("AnimatedCharacter");
-        anim = animChar.GetComponent<Animator>();
-        tranChar = animChar.GetComponent<Transform>();
-    }
-
     private void FixedUpdate()
     {
         recordedMovement.Add(new List<KeyCode>());
-
         if (Input.GetKey(KeyCode.W))
         {
-            // Movement
             rb.velocity = new Vector3(rb.velocity.x, 0, 10);
             RecordMovement(KeyCode.W);
-
-            // Animation
             tranChar.transform.rotation = Quaternion.Euler(0, 0, 0);
             if (Input.GetKey(KeyCode.A))
             {
@@ -64,11 +53,8 @@ public class PlayerController : MonoBehaviour
         }
         else if (Input.GetKey(KeyCode.S))
         {
-            // Movement
             rb.velocity = new Vector3(rb.velocity.x, 0, -10);
             RecordMovement(KeyCode.S);
-
-            // Animation
             tranChar.transform.rotation = Quaternion.Euler(0, 180, 0);
             if (Input.GetKey(KeyCode.A))
             {
@@ -82,11 +68,8 @@ public class PlayerController : MonoBehaviour
         else rb.velocity = new Vector3(rb.velocity.x, 0, 0);
         if (Input.GetKey(KeyCode.A))
         {
-            // Movement
             rb.velocity = new Vector3(-10, 0, rb.velocity.z);
             RecordMovement(KeyCode.A);
-             
-            // Animation
             tranChar.transform.rotation = Quaternion.Euler(0, 270, 0);
             if (Input.GetKey(KeyCode.W))
             {
@@ -99,11 +82,8 @@ public class PlayerController : MonoBehaviour
         }
         else if (Input.GetKey(KeyCode.D))
         {
-            // Movement
             rb.velocity = new Vector3(10, 0, rb.velocity.z);
             RecordMovement(KeyCode.D);
-
-            // Animation
             tranChar.transform.rotation = Quaternion.Euler(0, 90, 0);
             if (Input.GetKey(KeyCode.W))
             {
@@ -115,8 +95,8 @@ public class PlayerController : MonoBehaviour
             }
         }
         else rb.velocity = new Vector3(0, 0, rb.velocity.z);
-        
-        // Animation
+
+
         if (rb.velocity != Vector3.zero)
         {
             anim.SetBool("Walking", true);
@@ -125,6 +105,7 @@ public class PlayerController : MonoBehaviour
         {
             anim.SetBool("Walking", false);
         }
+
 
         frame++;
     }
