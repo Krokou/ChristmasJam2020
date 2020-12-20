@@ -4,20 +4,20 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public static int RobotIndex = 0;
+    private static int frame = 0;
     private Rigidbody rb;
+    public static List<List<KeyCode>> recordedMovement = new List<List<KeyCode>>();
 
-    private int frame = 0;
-    private List<List<KeyCode>> recordedMovement = new List<List<KeyCode>>();
-
-    public List<List<KeyCode>> GetRecordedMovement()
+    public static List<List<KeyCode>> GetRecordedMovement()
     {
         return recordedMovement;
     }
 
-
-    void Start()
+    public static void RestartGhostRecord()
     {
-        rb = GetComponent<Rigidbody>();
+        recordedMovement = new List<List<KeyCode>>();
+        frame = 0;
     }
 
     private void RecordMovement(KeyCode key)
@@ -25,9 +25,18 @@ public class PlayerController : MonoBehaviour
         recordedMovement[frame].Add(key);
     }
 
+
+
+    void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+        RestartGhostRecord();
+    }
+
     private void FixedUpdate()
     {
         recordedMovement.Add(new List<KeyCode>());
+
         if (Input.GetKey(KeyCode.W))
         {
             rb.velocity = new Vector3(rb.velocity.x, 0, 10);
@@ -52,5 +61,10 @@ public class PlayerController : MonoBehaviour
         else rb.velocity = new Vector3(0, 0, rb.velocity.z);
 
         frame++;
+    }
+
+    private void Update()
+    {
+        
     }
 }

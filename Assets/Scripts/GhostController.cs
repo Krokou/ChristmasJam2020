@@ -2,29 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GhostMovement : MonoBehaviour
+public class GhostController : MonoBehaviour
 {
     private int frame = 0;
-    private List<List<KeyCode>> keys;
+    private List<List<KeyCode>> keys = new List<List<KeyCode>>();
     private Rigidbody rb;
-    public GameObject player;
+    //public GameObject player;
+    public int ghostIndex;
+    //public int levelIndex;
 
-    // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void LoadKeys(List<List<KeyCode>> data)
     {
-        
+        keys = data;
     }
 
     private void OnEnable()
     {
+        Restart();
+    }
+
+    public void Restart()
+    {
         frame = 0;
-        keys = new List<List<KeyCode>>(player.GetComponent<PlayerController>().GetRecordedMovement());
     }
 
     private void FixedUpdate()
@@ -53,7 +57,11 @@ public class GhostMovement : MonoBehaviour
                         break;
                 }
             }
+            frame++;
         }
-        frame++;
+        else
+        {
+            rb.velocity = Vector3.zero;
+        }
     }
 }
