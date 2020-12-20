@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class pause : MonoBehaviour
+public class PauseScript : MonoBehaviour
 
 {
     public static bool gameIsPaused;
