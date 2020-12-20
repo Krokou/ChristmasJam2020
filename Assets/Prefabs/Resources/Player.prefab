@@ -88,6 +88,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52fa465112ff6be488cc8ff983339efd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &686466341113843820
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3649831031945696394}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 51ca537cb64cc7a43baee5361f2ef1d3, type: 2}
+  m_CullingMode: 2
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &4496743268303710683
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -143,8 +162,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: RobotCharacter_RIG
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e4964c3bfefc18a42ab15d5fbe059e3e, type: 3}
+      propertyPath: m_TagString
+      value: AnimatedCharacter
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4964c3bfefc18a42ab15d5fbe059e3e, type: 3}
+--- !u!1 &3649831031945696394 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e4964c3bfefc18a42ab15d5fbe059e3e, type: 3}
+  m_PrefabInstance: {fileID: 4496743268303710683}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4174024663369928240 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e4964c3bfefc18a42ab15d5fbe059e3e, type: 3}
