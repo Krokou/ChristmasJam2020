@@ -1,24 +1,36 @@
 fileFormatVersion: 2
-guid: e4964c3bfefc18a42ab15d5fbe059e3e
+guid: 74554be2871f1d74ba383ebcb8ed9e31
 ModelImporter:
   serializedVersion: 20200
-  internalIDToNameTable: []
-  externalObjects:
+  internalIDToNameTable:
   - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material.001
-    second: {fileID: 2100000, guid: 3a0c2657751222a44bfd9634524a6924, type: 2}
+      74: 5522812681064789136
+    second: Run
   - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: No Name
-    second: {fileID: 2100000, guid: 3a0c2657751222a44bfd9634524a6924, type: 2}
+      74: 2667949614841947897
+    second: Walk
   - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Screen
-    second: {fileID: 2100000, guid: 3a0c2657751222a44bfd9634524a6924, type: 2}
+      74: 2197495204555726810
+    second: Rig|Death1
+  - first:
+      74: -5630227004652326547
+    second: Rig|Death2
+  - first:
+      74: -8410134998883456523
+    second: Rig|Death_Electrocuted
+  - first:
+      74: -429512112410174799
+    second: Rig|Idle
+  - first:
+      74: 1513717263979871970
+    second: Rig|RigAction
+  - first:
+      74: -5181486892397411127
+    second: Rig|Run
+  - first:
+      74: -7264356326966739861
+    second: Rig|Walk
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
