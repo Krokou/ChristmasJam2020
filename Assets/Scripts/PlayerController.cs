@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb;
     private GameObject animChar;
     private Transform tranChar;
+    private Animator anim;
+
 
     private int frame = 0;
     private List<List<KeyCode>> recordedMovement = new List<List<KeyCode>>();
@@ -20,6 +22,8 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         animChar = GameObject.FindWithTag("AnimatedCharacter");
+        anim = animChar.GetComponent<Animator>();
+
         tranChar = animChar.GetComponent<Transform>();
 
         rb = GetComponent<Rigidbody>();
@@ -93,6 +97,14 @@ public class PlayerController : MonoBehaviour
         else rb.velocity = new Vector3(0, 0, rb.velocity.z);
 
 
+        if (rb.velocity != Vector3.zero)
+        {
+            anim.SetBool("Walking", true);
+        }
+        else
+        {
+            anim.SetBool("Walking", false);
+        }
 
 
         frame++;
