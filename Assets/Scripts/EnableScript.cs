@@ -5,6 +5,8 @@ using UnityEngine;
 public class EnableScript : MonoBehaviour
 {
     public GameObject obj;
+    public GhostMovement gm;
+    public BoxCollider bc;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +18,16 @@ public class EnableScript : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.G))
         {
-            obj.SetActive(true);
+            try
+            {
+                //obj.SetActive(true);
+                gm.enabled = true;
+                //bc.enabled = true;
+            }
+            catch
+            {
+
+            }
         }
     }
 }

@@ -4,24 +4,24 @@ using UnityEngine;
 
 public class PlayerDeath : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public IEnumerator KillPlayer()
     {
-        
+        print("Bang! Player dead!");
+
+        //play death animation
+
+        yield return new WaitForSeconds(1);
+
+        Destroy(gameObject);
+        //jump to game over screen / restart
+        yield return null;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionEnter(Collision col)
     {
-        
-    }
-
-    private void OnTriggerEnter(Collider col)
-    {
-        if (col.tag == "Ghost")
+        if (col.collider.tag == "Ghost")
         {
-
+            StartCoroutine("KillPlayer");
         }
-        //die();
     }
 }
