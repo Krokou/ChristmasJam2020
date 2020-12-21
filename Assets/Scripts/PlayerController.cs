@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private GameObject animChar;
-    private Transform tranChar;
-    private Animator anim;
+    public Transform tranChar;
+    public Animator anim;
 
     public static int RobotIndex = 0;
     private static int frame = 0;
     private Rigidbody rb;
     public static List<List<KeyCode>> recordedMovement = new List<List<KeyCode>>();
+
+    public float speed = 3f;
+
+
 
     public static List<List<KeyCode>> GetRecordedMovement()
     {
@@ -36,9 +39,17 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         RestartGhostRecord();
 
-        animChar = GameObject.FindWithTag("AnimatedCharacter");
-        anim = animChar.GetComponent<Animator>();
-        tranChar = animChar.GetComponent<Transform>();
+        anim = GetComponentInChildren<Animator>();
+        tranChar = anim.transform;
+    }
+
+    private void Update()
+    {
+        if (anim == null)
+        {
+            anim = GetComponentInChildren<Animator>();
+            tranChar = anim.transform;
+        }
     }
 
     private void FixedUpdate()
@@ -48,7 +59,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.W))
         {
             // Movement
-            rb.velocity = new Vector3(rb.velocity.x, 0, 10);
+            rb.velocity = new Vector3(rb.velocity.x, 0, speed);
             RecordMovement(KeyCode.W);
 
             // Animation
@@ -68,7 +79,7 @@ public class PlayerController : MonoBehaviour
         else if (Input.GetKey(KeyCode.S))
         {
             // Movement
-            rb.velocity = new Vector3(rb.velocity.x, 0, -10);
+            rb.velocity = new Vector3(rb.velocity.x, 0, -speed);
             RecordMovement(KeyCode.S);
 
             // Animation
@@ -89,7 +100,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.A))
         {
             // Movement
-            rb.velocity = new Vector3(-10, 0, rb.velocity.z);
+            rb.velocity = new Vector3(-speed, 0, rb.velocity.z);
             RecordMovement(KeyCode.A);
 
             // Animation
@@ -109,7 +120,7 @@ public class PlayerController : MonoBehaviour
         else if (Input.GetKey(KeyCode.D))
         {
             // Movement
-            rb.velocity = new Vector3(10, 0, rb.velocity.z);
+            rb.velocity = new Vector3(speed, 0, rb.velocity.z);
             RecordMovement(KeyCode.D);
 
             // Animation

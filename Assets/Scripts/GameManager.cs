@@ -11,8 +11,8 @@ public class GameManager : MonoBehaviour
     {
         // Prepare levels here in GhostManager
         // Level 0
-        GhostManager.AddLevel(2);
-        levelSpawns.Add(new Vector3(0, 1, 0));
+        GhostManager.AddLevel(1);
+        levelSpawns.Add(new Vector3(-4f, 0f, -4f));
         
         // Level 1
         
@@ -67,7 +67,7 @@ public class GameManager : MonoBehaviour
             if (i != PlayerController.RobotIndex && ghost.record.Count != 0)
             {
                 GameObject newGhost = Instantiate(Resources.Load("Ghost")) as GameObject;
-                newGhost.transform.position = levelSpawns[levelIndex] + new Vector3(2, 0, 0); // NB HUSK A FJERNE DENNE
+                newGhost.transform.position = levelSpawns[levelIndex]; 
                 newGhost.GetComponent<GhostController>().ghostIndex = i;
             }
         }
