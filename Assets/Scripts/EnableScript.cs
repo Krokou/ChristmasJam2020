@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnableScript : MonoBehaviour
 {
     public GameObject obj;
-    public GhostMovement gm;
+    public GhostController gm;
     public BoxCollider bc;
     // Start is called before the first frame update
     void Start()

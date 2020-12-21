@@ -11,13 +11,12 @@ GameObject:
   - component: {fileID: 2662270624394355593}
   - component: {fileID: 348963309183970472}
   - component: {fileID: 3419020160335765299}
-  - component: {fileID: 587910996}
-  - component: {fileID: 587910997}
-  - component: {fileID: 587910998}
-  - component: {fileID: 7400734130589056534}
+  - component: {fileID: 389199437}
+  - component: {fileID: 389199441}
+  - component: {fileID: 1921975246}
   m_Layer: 0
-  m_Name: Ghost
-  m_TagString: Ghost
+  m_Name: Player
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -66,7 +65,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 1, z: 0.5}
   m_Center: {x: 0, y: 0.5, z: 0}
---- !u!114 &587910996
+--- !u!114 &389199437
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -75,40 +74,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 2236047623101837231}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c385f89132e8a6468ea1ebf2fb13138, type: 3}
+  m_Script: {fileID: 11500000, guid: 3858902f31c4951448c0c0cc880e8ec6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &587910997
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2236047623101837231}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9bf74c1548831d4fa6c82e955de14e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  obj: {fileID: 3649831031945696394}
-  gm: {fileID: 587910998}
-  bc: {fileID: 3419020160335765299}
---- !u!114 &587910998
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2236047623101837231}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6fd88e910fb7e6744949ba80722d1b39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-<<<<<<< HEAD:Assets/Prefabs/Resources/Ghost.prefab
-  ghostIndex: 0
+  animChar: {fileID: 0}
+  tranChar: {fileID: 0}
+  anim: {fileID: 0}
   speed: 3
---- !u!114 &7400734130589056534
+--- !u!114 &389199441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2236047623101837231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52fa465112ff6be488cc8ff983339efd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1921975246
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -120,7 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b13636d58584d94598a2cac3910df0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!95 &9051965372284022642
+--- !u!95 &686466341113843820
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -139,9 +124,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
-=======
-  player: {fileID: 0}
->>>>>>> parent of 53c8ce8... Merge branch 'main' into CellshadingRendering:Assets/Prefabs/Ghost.prefab
 --- !u!1001 &4496743268303710683
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -196,10 +178,6 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e4964c3bfefc18a42ab15d5fbe059e3e, type: 3}
       propertyPath: m_Name
       value: RobotCharacter_RIG
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: e4964c3bfefc18a42ab15d5fbe059e3e, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e4964c3bfefc18a42ab15d5fbe059e3e, type: 3}
       propertyPath: m_TagString
