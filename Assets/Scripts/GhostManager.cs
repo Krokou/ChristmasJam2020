@@ -7,6 +7,8 @@ public class GhostManager : MonoBehaviour
     // levelData[Level][Ghost] contains the record for the specific ghost.
     public static List<List<GhostData>> levelData = new List<List<GhostData>>();
 
+    //public static List<>
+
     public class GhostData
     {
         public List<List<KeyCode>> record = new List<List<KeyCode>>();
