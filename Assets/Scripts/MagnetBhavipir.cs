@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MagnetBehaviour : MonoBehaviour
+public class MagnetBhavipir : MonoBehaviour
 {
     public List<GameObject> targets;
     public float range = 2f;

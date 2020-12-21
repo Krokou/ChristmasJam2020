@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GhostController : MonoBehaviour
+public class GhostMovement : MonoBehaviour
 {
     private int frame = 0;
-    private List<List<KeyCode>> keys = new List<List<KeyCode>>();
+    private List<List<KeyCode>> keys;
     private Rigidbody rb;
+<<<<<<< HEAD:Assets/Scripts/GhostController.cs
     public int ghostIndex;
     public float speed = 3f;
 
@@ -14,20 +15,26 @@ public class GhostController : MonoBehaviour
     public Animator anim;
 
 
+=======
+    public GameObject player;
 
-    public void LoadKeys(List<List<KeyCode>> data)
+    // Start is called before the first frame update
+    void Start()
     {
-        keys = data;
+        rb = GetComponent<Rigidbody>();
+    }
+>>>>>>> parent of 53c8ce8... Merge branch 'main' into CellshadingRendering:Assets/Scripts/GhostMovement.cs
+
+    // Update is called once per frame
+    void Update()
+    {
+        
     }
 
     private void OnEnable()
     {
-        Restart();
-    }
-
-    public void Restart()
-    {
         frame = 0;
+        keys = new List<List<KeyCode>>(player.GetComponent<PlayerController>().GetRecordedMovement());
     }
 
 
@@ -139,12 +146,8 @@ public class GhostController : MonoBehaviour
                         break;
                 }
             }
-            frame++;
         }
-        else
-        {
-            rb.velocity = Vector3.zero;
-        }
+<<<<<<< HEAD:Assets/Scripts/GhostController.cs
         
         // Animate
         if (anim != null)
@@ -158,5 +161,8 @@ public class GhostController : MonoBehaviour
                 anim.SetBool("Walking", false);
             }
         }
+=======
+        frame++;
+>>>>>>> parent of 53c8ce8... Merge branch 'main' into CellshadingRendering:Assets/Scripts/GhostMovement.cs
     }
 }
