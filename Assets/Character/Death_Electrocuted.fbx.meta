@@ -1,29 +1,12 @@
 fileFormatVersion: 2
-guid: e4964c3bfefc18a42ab15d5fbe059e3e
+guid: 41a22dad8c0800c4f8d27a341a48eb29
 ModelImporter:
   serializedVersion: 20200
-  internalIDToNameTable: []
-  externalObjects:
+  internalIDToNameTable:
   - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: No Name
-    second: {fileID: 2100000, guid: 3a0c2657751222a44bfd9634524a6924, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: RobotBody
-    second: {fileID: 2100000, guid: 76eeacffea81f764da7684e7c8f064e4, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: RobotInternals
-    second: {fileID: 2100000, guid: 77e64d056008bf34babc90436ad51f9c, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Screen
-    second: {fileID: 2100000, guid: f9b5e83529e1a874eb998369f60071b9, type: 2}
+      74: 7196567923062233770
+    second: Death_Electrocuted
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
