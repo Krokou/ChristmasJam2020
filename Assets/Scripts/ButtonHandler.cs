@@ -15,9 +15,19 @@ public class ButtonHandler : MonoBehaviour
         GetComponentInChildren<Text>().text = "Timeline " + (buttonIndex + 1).ToString();
 
         // Set self to right active state with right picture depending on ghost data.
+        GetComponent<Button>().interactable = true;
         if (GhostManager.levelData[GameManager.levelIndex][buttonIndex].record.Count != 0)
         {
-
+            GetComponent<Image>().color = GhostManager.timeLineButtonColors[buttonIndex];
+        }
+        else if (buttonIndex == GhostManager.levelData[GameManager.levelIndex].Count - 1)
+        {
+            GetComponent<Image>().color = GhostManager.timeLineButtonColors[4];
+        }
+        else
+        {
+            GetComponent<Image>().color = GhostManager.timeLineButtonColors[5];
+            GetComponent<Button>().interactable = false;
         }
 
         // Move self to right position depending on state and ammount of max ghosts for current level

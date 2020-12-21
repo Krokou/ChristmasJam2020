@@ -7,7 +7,17 @@ public class GhostManager : MonoBehaviour
     // levelData[Level][Ghost] contains the record for the specific ghost.
     public static List<List<GhostData>> levelData = new List<List<GhostData>>();
 
-    //public static List<>
+    public static List<Color> timeLineButtonColors = new List<Color>();
+
+    private void Start()
+    {
+        timeLineButtonColors.Add(Color.red);
+        timeLineButtonColors.Add(Color.green);
+        timeLineButtonColors.Add(Color.blue);
+        timeLineButtonColors.Add(Color.white);
+        timeLineButtonColors.Add(Color.gray);
+        timeLineButtonColors.Add(Color.black);
+    }
 
     public class GhostData
     {
