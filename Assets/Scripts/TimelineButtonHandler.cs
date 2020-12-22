@@ -6,8 +6,12 @@ using UnityEngine.UI;
 public class TimelineButtonHandler : MonoBehaviour
 {
     public int buttonIndex = 0;
+    private PauseScript ps;
 
-    //private List<Color> = ;
+    private void Start()
+    {
+        ps = GameObject.FindGameObjectWithTag("GameController").GetComponent<PauseScript>();
+    }
 
     private void OnEnable()
     {
@@ -57,12 +61,16 @@ public class TimelineButtonHandler : MonoBehaviour
     public void ChooseTimeline()
     {
         // Set current robot indexed ghost's data
-        GhostManager.SetGhostData(PlayerController.RobotIndex, PlayerController.GetRecordedMovement());
+        //GhostManager.SetGhostData(PlayerController.RobotIndex, PlayerController.GetRecordedMovement());
 
+        //print(GhostManager.levelData[GameManager.levelIndex][PlayerController.RobotIndex].record);
         // Set robot index to our index.
         PlayerController.RobotIndex = buttonIndex;
 
         // Unpause and restart
+        ps.UnpauseGame();
+        Resources.FindObjectsOfTypeAll<ChooseTimelineScreen>()[0].gameObject.SetActive(false);
+        
         GameManager.RestartLevelWithGhosts();
     }
 

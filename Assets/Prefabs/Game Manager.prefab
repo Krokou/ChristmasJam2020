@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5636320754622098006}
   m_Layer: 0
   m_Name: Game Manager
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -69,3 +69,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e478639c87a2bd4ea47f9fd5ea2fcf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pausePanel: {fileID: 0}

@@ -24,13 +24,24 @@ public class PauseScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // TODO Set key to ESC before build
+        
         if (pausePanel != null)
         {
+            // TODO Set key to ESC before build
+            // Pause game when inside of game, and unpause if on pause screen.
             if (Input.GetKeyDown(KeyCode.P))
             {
-                gameIsPaused = !gameIsPaused;
-                PauseGame();
+                // Logic for when to pause and unpause game with pause panel
+                if (!gameIsPaused)
+                {
+                    PauseGame();
+                    EnablePausePanel();
+                }
+                else if (pausePanel.activeSelf)
+                {
+                    UnpauseGame();
+                    DisablePausePanel();
+                }
             }
         }
         else
@@ -48,18 +59,25 @@ public class PauseScript : MonoBehaviour
 
     public void PauseGame()
     {
-        if (gameIsPaused)
-        {
-            Time.timeScale = 0f;
-            AudioListener.pause = true;
-            pausePanel.SetActive(true);
-        }
-        else
-        {
-            print("Kewl");
-            Time.timeScale = 1;
-            AudioListener.pause = false;
-            pausePanel.SetActive(false);
-        }
+        gameIsPaused = true;
+        Time.timeScale = 0f;
+        AudioListener.pause = true;
+    }
+
+    public void UnpauseGame()
+    {
+        gameIsPaused = false;
+        Time.timeScale = 1f;
+        AudioListener.pause = false;
+    }
+
+    public void EnablePausePanel()
+    {
+        pausePanel.SetActive(true);
+    }
+
+    public void DisablePausePanel()
+    {
+        pausePanel.SetActive(false);
     }
 }

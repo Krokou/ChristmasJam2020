@@ -32,24 +32,18 @@ public class GameManager : MonoBehaviour
         GhostManager.ClearGhostData(levelIndex);
     }
 
-    // TODO
     public static void LoadLevel(int level)
     {
         levelIndex = level;
         PlayerController.RobotIndex = 0;
         GhostManager.ClearGhostData(level);
-        
-        // load level here, somehow.
-
-        // Maybe scene manage?
-
-        // Spawn in player
+        RestartLevelWithGhosts();
     }
 
     // TODO
     public static void RestartLevelWithGhosts()
     {
-        // TODO: Reset level
+        // TODO: Reset level by loading scene again without resetting ghost progress
 
         // Remove player and ghosts
         foreach (var ghost in GameObject.FindGameObjectsWithTag("Ghost"))
@@ -94,6 +88,7 @@ public class GameManager : MonoBehaviour
     {
         PlayerController.RobotIndex = index;
     }
+
 
 
     // REMOVE LATER
