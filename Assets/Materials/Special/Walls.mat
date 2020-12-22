@@ -24,7 +24,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_4c8109b3fd8b48968abc0c10fc765a06:
-        m_Texture: {fileID: 2800000, guid: b189cae4dfdc4c6458befea0232bafd2, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseMap:
@@ -84,9 +84,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_366094730b0e4d7cb16f896c6e8f21f0: 39
+    - Vector1_366094730b0e4d7cb16f896c6e8f21f0: 28.9
     - Vector1_73ff9ffb74dd4d0687b6353354f5147f: 1
     - Vector1_8aa5e25adec34bdabf733d9a643aaf71: 0
+    - Vector1_983e66acc7c84eeebb58420303a45a77: 0.21
+    - Vector1_a65e3ce5f90b4c989b988ad54dfc8ca4: 0.48
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -106,6 +108,7 @@ Material:
     - _Parallax: 0.005
     - _QueueOffset: 0
     - _ReceiveShadows: 1
+    - _Size: 2.0028531e-11
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -117,6 +120,7 @@ Material:
     - _BaseColor: {r: 1, g: 0, b: 0, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _Position: {r: 0.4999997, g: 0.4687812, b: 13.459286, a: 0}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &1467668896086162801
