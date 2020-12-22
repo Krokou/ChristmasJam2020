@@ -6,8 +6,10 @@ public class AnimationTesting : MonoBehaviour
 {
     public ParticleSystem electro;
     public Animator anim;
+    public Animator doorAnim;
+    public Animator springA;
 
-    void lightning()
+    void Death()
     {
         anim.SetTrigger("Death_Electro");
         electro.Play();
@@ -18,6 +20,19 @@ public class AnimationTesting : MonoBehaviour
         anim.SetTrigger("Alive");
     }
 
+    void CloseDoor()
+    {
+        doorAnim.SetTrigger("Close");
+    }
+    void OpenDoor()
+    {
+        doorAnim.SetTrigger("Open");
+    }
+
+    void Spring()
+    {
+        springA.SetTrigger("Spring");
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -27,17 +42,31 @@ public class AnimationTesting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         anim.ResetTrigger("Death_Electro");
         anim.ResetTrigger("Alive");
         if (Input.GetKeyDown(KeyCode.E))
         {
-            lightning();
+            Death();
         }
         if (Input.GetKeyDown(KeyCode.Q))
         {
             Alive();
         }
 
-        
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            OpenDoor();
+        }
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            CloseDoor();
+        }
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            Spring();
+        }
+        //doorAnim.ResetTrigger("Open");
+        //doorAnim.ResetTrigger("Close");
     }
 }
