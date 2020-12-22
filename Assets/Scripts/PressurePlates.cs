@@ -5,6 +5,7 @@ using UnityEngine;
 public class PressurePlates : MonoBehaviour
 {
     public Animator door;
+    public Animator door2;
     private Animator plate;
 
     // Start is called before the first frame update
@@ -24,7 +25,6 @@ public class PressurePlates : MonoBehaviour
     //    if(collider.gameObject.name == "Player")
     //    {
     //        door.SetBool("Open", true);
-
     //    }
     //}
 
@@ -34,6 +34,7 @@ public class PressurePlates : MonoBehaviour
         {
             door.SetBool("Open", true);
             plate.SetBool("Active", true);
+            door2.SetBool("Open", true);
         }
     }
     void OnTriggerExit(Collider other)
@@ -42,6 +43,7 @@ public class PressurePlates : MonoBehaviour
         {
             door.SetBool("Open", false);
             plate.SetBool("Active", false);
+            door2.SetBool("Open", false);
 
         }
     }
