@@ -9,6 +9,7 @@ public class GhostManager : MonoBehaviour
 
     public static List<Color> timeLineButtonColors = new List<Color>();
 
+    // TODO: Setting the color variations for buttons. Could be used for player shaders as well, ask Vegard.
     private void Start()
     {
         timeLineButtonColors.Add(Color.red);
