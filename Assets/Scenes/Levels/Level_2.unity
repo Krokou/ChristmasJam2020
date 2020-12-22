@@ -1126,6 +1126,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PressurePlate (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8713090376976695269, guid: bcd19680d738a7d489ae80984a3a8539, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bcd19680d738a7d489ae80984a3a8539, type: 3}
 --- !u!1001 &956071533
@@ -2678,6 +2682,10 @@ PrefabInstance:
     - target: {fileID: 1932985541040324656, guid: bcd19680d738a7d489ae80984a3a8539, type: 3}
       propertyPath: m_Name
       value: PressurePlate (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8713090376976695269, guid: bcd19680d738a7d489ae80984a3a8539, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bcd19680d738a7d489ae80984a3a8539, type: 3}
