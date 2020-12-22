@@ -13,8 +13,9 @@ public class PlayerController : MonoBehaviour
     public static List<List<KeyCode>> recordedMovement = new List<List<KeyCode>>();
 
     public float speed = 3f;
+    public float rotationSpeed = 0.01f;
 
-
+    private Quaternion targetRotation = Quaternion.identity;
 
     public static List<List<KeyCode>> GetRecordedMovement()
     {
@@ -65,15 +66,16 @@ public class PlayerController : MonoBehaviour
             // Animation
             if (anim != null)
             {
-                tranChar.transform.rotation = Quaternion.Euler(0, 0, 0);
+                targetRotation = Quaternion.Euler(0, 0, 0);
                 if (Input.GetKey(KeyCode.A))
                 {
-                    tranChar.transform.rotation = Quaternion.Euler(0, 315, 0);
+                    targetRotation = Quaternion.Euler(0, 315, 0);
                 }
                 else if (Input.GetKey(KeyCode.D))
                 {
-                    tranChar.transform.rotation = Quaternion.Euler(0, 45, 0);
+                    targetRotation = Quaternion.Euler(0, 45, 0);
                 }
+                tranChar.transform.rotation = Quaternion.Slerp(tranChar.transform.rotation, targetRotation, rotationSpeed);
             }
         }
         else if (Input.GetKey(KeyCode.S))
@@ -85,15 +87,16 @@ public class PlayerController : MonoBehaviour
             // Animation
             if (anim != null)
             {
-                tranChar.transform.rotation = Quaternion.Euler(0, 180, 0);
+                targetRotation = Quaternion.Euler(0, 180, 0);
                 if (Input.GetKey(KeyCode.A))
                 {
-                    tranChar.transform.rotation = Quaternion.Euler(0, 225, 0);
+                    targetRotation = Quaternion.Euler(0, 225, 0);
                 }
                 else if (Input.GetKey(KeyCode.D))
                 {
-                    tranChar.transform.rotation = Quaternion.Euler(0, 135, 0);
+                    targetRotation = Quaternion.Euler(0, 135, 0);
                 }
+                tranChar.transform.rotation = Quaternion.Slerp(tranChar.transform.rotation, targetRotation, rotationSpeed);
             }
         }
         else rb.velocity = new Vector3(rb.velocity.x, 0, 0);
@@ -106,15 +109,16 @@ public class PlayerController : MonoBehaviour
             // Animation
             if (anim != null)
             {
-                tranChar.transform.rotation = Quaternion.Euler(0, 270, 0);
+                targetRotation = Quaternion.Euler(0, 270, 0);
                 if (Input.GetKey(KeyCode.W))
                 {
-                    tranChar.transform.rotation = Quaternion.Euler(0, 315, 0);
+                    targetRotation = Quaternion.Euler(0, 315, 0);
                 }
                 else if (Input.GetKey(KeyCode.S))
                 {
-                    tranChar.transform.rotation = Quaternion.Euler(0, 225, 0);
+                    targetRotation = Quaternion.Euler(0, 225, 0);
                 }
+                tranChar.transform.rotation = Quaternion.Slerp(tranChar.transform.rotation, targetRotation, rotationSpeed);
             }
         }
         else if (Input.GetKey(KeyCode.D))
@@ -126,15 +130,16 @@ public class PlayerController : MonoBehaviour
             // Animation
             if (anim != null)
             {
-                tranChar.transform.rotation = Quaternion.Euler(0, 90, 0);
+                targetRotation = Quaternion.Euler(0, 90, 0);
                 if (Input.GetKey(KeyCode.W))
                 {
-                    tranChar.transform.rotation = Quaternion.Euler(0, 45, 0);
+                    targetRotation = Quaternion.Euler(0, 45, 0);
                 }
                 else if (Input.GetKey(KeyCode.S))
                 {
-                    tranChar.transform.rotation = Quaternion.Euler(0, 135, 0);
+                    targetRotation = Quaternion.Euler(0, 135, 0);
                 }
+                tranChar.transform.rotation = Quaternion.Slerp(tranChar.transform.rotation, targetRotation, rotationSpeed);
             }
         }
         else rb.velocity = new Vector3(0, 0, rb.velocity.z);

@@ -696,10 +696,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ChooseTimelineScreen
       objectReference: {fileID: 0}
-    - target: {fileID: 7631828587530604726, guid: 77024f89692feac46b9fdfbbc1c74ec0, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77024f89692feac46b9fdfbbc1c74ec0, type: 3}
 --- !u!1001 &1845500132013325755
@@ -769,10 +765,6 @@ PrefabInstance:
     - target: {fileID: 3081755107159735841, guid: 81a011372eb7d40438ff224715af46bc, type: 3}
       propertyPath: m_Name
       value: PauseScreen
-      objectReference: {fileID: 0}
-    - target: {fileID: 3081755107159735841, guid: 81a011372eb7d40438ff224715af46bc, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3081755107159735845, guid: 81a011372eb7d40438ff224715af46bc, type: 3}
       propertyPath: m_Pivot.x

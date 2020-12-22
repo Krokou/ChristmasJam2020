@@ -77,10 +77,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3858902f31c4951448c0c0cc880e8ec6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animChar: {fileID: 0}
   tranChar: {fileID: 0}
   anim: {fileID: 0}
   speed: 3
+  rotationSpeed: 0.2
 --- !u!114 &389199441
 MonoBehaviour:
   m_ObjectHideFlags: 0
