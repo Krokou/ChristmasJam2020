@@ -8,6 +8,8 @@ public class TimelineButtonHandler : MonoBehaviour
     public int buttonIndex = 0;
     private PauseScript ps;
 
+    public List<Sprite> sprites;
+
     private void Start()
     {
         ps = GameObject.FindGameObjectWithTag("GameController").GetComponent<PauseScript>();
@@ -20,19 +22,19 @@ public class TimelineButtonHandler : MonoBehaviour
         GetComponent<Button>().interactable = true;
         if (GhostManager.levelData[GameManager.levelIndex][buttonIndex].record.Count != 0)
         {
-            GetComponent<Image>().color = GhostManager.timeLineButtonColors[buttonIndex];
+            GetComponent<Image>().sprite = sprites[buttonIndex];
             GetComponentInChildren<Text>().text = "Timeline " + (buttonIndex + 1).ToString();
         }
         else if (IsNextTimeLine())
         {
-            GetComponent<Image>().color = GhostManager.timeLineButtonColors[4];
+            GetComponent<Image>().sprite = sprites[4];
             GetComponentInChildren<Text>().text = "New Timeline";
         }
         else
         {
-            GetComponent<Image>().color = GhostManager.timeLineButtonColors[5];
+            GetComponent<Image>().sprite = sprites[5];
             GetComponent<Button>().interactable = false;
-            GetComponentInChildren<Text>().text = "";
+            GetComponentInChildren<Text>().text = "Locked";
         }
 
         // Move self to right position depending on state and number of max ghosts for current level
