@@ -78,7 +78,7 @@ public class PauseScreen : MonoBehaviour
         // Disable Pause Panel
         ps.DisablePausePanel();
 
-        // TODO Load mainmenu scene
+        // Load mainmenu scene
         print("Main Menu scene transition");
         SceneManager.LoadScene(0);
     }
