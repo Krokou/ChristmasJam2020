@@ -99,7 +99,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: ed2c581b45793ef4791b9c4ba26567c1, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 009ac74030e98854cb044c77dffb8aff, type: 2}
+      objectReference: {fileID: 2100000, guid: 1ceac059b147fd0419ad898e86d8c1f7, type: 2}
     - target: {fileID: 919132149155446097, guid: ed2c581b45793ef4791b9c4ba26567c1, type: 3}
       propertyPath: m_Name
       value: MidPillar_03

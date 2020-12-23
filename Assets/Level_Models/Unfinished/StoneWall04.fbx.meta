@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5f5c27ef8e8cdbf4292b519763600914
+guid: 10be2b72be972e64db46b562186eebb5
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
@@ -7,8 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: ButterGoal
-    second: {fileID: 2100000, guid: 0780ab4527703464fb5bbb17340bc3a2, type: 2}
+      name: Stonewall04
+    second: {fileID: 2100000, guid: aa6fac28e5eaa1e46ad3d6db84e6c2fb, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

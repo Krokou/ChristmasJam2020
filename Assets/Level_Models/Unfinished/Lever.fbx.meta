@@ -3,7 +3,12 @@ guid: be75ce41095761441bf0d842e670ad7f
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lever
+    second: {fileID: 2100000, guid: 203a0b4563a86304b8a8d7210b573d55, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
