@@ -38,7 +38,7 @@ public class PauseScript : MonoBehaviour
             // TODO Set key to ESC before build
             // Pause game when inside of game, and unpause if on pause screen.
             if (SceneManager.GetActiveScene().buildIndex == GameManager.levelIndex + 1) {
-                if (Input.GetKeyDown(KeyCode.P) || GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().dead)
+                if (Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Escape) || GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().dead)
                 {
                     GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().dead = false;
                     // Logic for when to pause and unpause game with pause panel

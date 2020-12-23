@@ -135,16 +135,9 @@ public class GameManager : MonoBehaviour
     // TODO REMOVE LATER
     private void Update()
     {
-        // Save ghost recording and start next ghost recording. Moved to GhostManager for actual game. This is just for testing.
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            GhostManager.SetGhostData(PlayerController.RobotIndex, PlayerController.GetRecordedMovement());
-            PlayerController.RobotIndex++;
-            RestartLevelWithGhosts();
-        }
 
         // Reload level like this
-        if (Input.GetKeyDown(KeyCode.K))
+        if (Input.GetKeyDown(KeyCode.R))
         {
             RestartLevelWithGhosts();
         }
