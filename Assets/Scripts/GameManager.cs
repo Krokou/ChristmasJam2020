@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     {
         // Prepare levels here in GhostManager
         // Level 0
-        GhostManager.AddLevel(1);
+        GhostManager.AddLevel(4);
         levelSpawns.Add(new Vector3(0f, 0f, 0f));
 
         // Level 1

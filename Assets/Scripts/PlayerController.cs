@@ -35,7 +35,14 @@ public class PlayerController : MonoBehaviour
         recordedMovement[frame].Add(key);
     }
 
-
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Finish")
+        {
+            GameManager.levelIndex += 1;
+            GameManager.LoadLevel(GameManager.levelIndex);
+        }
+    }
 
     void Start()
     {
@@ -54,6 +61,11 @@ public class PlayerController : MonoBehaviour
         {
             anim = GetComponentInChildren<Animator>();
             tranChar = anim.transform;
+        }
+
+        if (dead)
+        {
+
         }
     }
 
@@ -153,7 +165,7 @@ public class PlayerController : MonoBehaviour
             // Animation
             if (anim != null)
             {
-                if (rb.velocity != Vector3.zero)
+                if (rb.velocity != new Vector3(0, rb.velocity.y, 0))
                 {
                     anim.SetBool("Walking", true);
                 }

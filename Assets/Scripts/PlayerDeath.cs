@@ -4,19 +4,24 @@ using UnityEngine;
 
 public class PlayerDeath : MonoBehaviour
 {
+    private GameObject chooseTimelineScreen;
+
     private Animator anim;
     void Start()
     {
         anim = gameObject.GetComponentInChildren<Animator>();
     }
-    public void KillPlayer()
+    public IEnumerator KillPlayer()
     {
         if (anim != null)
         {
             anim.SetTrigger("Death");
+            
+            yield return new WaitForSeconds(2);
+
             gameObject.GetComponent<PlayerController>().dead = true;
         }
-    
+        yield return null;
     }
 
     private void OnCollisionEnter(Collision col)
@@ -24,7 +29,8 @@ public class PlayerDeath : MonoBehaviour
         
         if (col.collider.tag == "Ghost")
         {
-            KillPlayer();
+
+            StartCoroutine("KillPlayer");
 
         }
 
@@ -43,7 +49,7 @@ public class PlayerDeath : MonoBehaviour
         
         if (transform.position.y < -3)
         {
-            KillPlayer();
+            StartCoroutine("KillPlayer");
         }
     }
 }

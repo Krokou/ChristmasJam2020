@@ -57,7 +57,7 @@ public class GhostController : MonoBehaviour
         {
             if (frame < keys.Count)
             {
-                rb.velocity = Vector3.zero;
+                rb.velocity = new Vector3(0, rb.velocity.y, 0);
                 foreach (var key in keys[frame])
                 {
                     switch (key)
@@ -147,13 +147,13 @@ public class GhostController : MonoBehaviour
             }
             else
             {
-                rb.velocity = Vector3.zero;
+                rb.velocity = new Vector3(0, rb.velocity.y, 0);
             }
 
             // Animate
             if (anim != null)
             {
-                if (rb.velocity != Vector3.zero)
+                if (rb.velocity != new Vector3(0, rb.velocity.y, 0))
                 {
                     anim.SetBool("Walking", true);
                 }
