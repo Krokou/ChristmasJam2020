@@ -7,6 +7,11 @@ public class GameManager : MonoBehaviour
 {
     //public static bool startFinished = false;
     //public static bool startFinished2 = true;
+    public AudioSource audioSource;
+    public AudioClip clip1;
+    public AudioClip clip2;
+
+    private int sceneIndex = 0;
 
     public static int levelIndex = 0;
     public static List<Vector3> levelSpawns = new List<Vector3>();
@@ -73,6 +78,19 @@ public class GameManager : MonoBehaviour
 
     private void OnLevelWasLoaded(int level)
     {
+        if (sceneIndex != SceneManager.GetActiveScene().buildIndex)
+        {
+            if (sceneIndex == 0 && SceneManager.GetActiveScene().buildIndex == 1)
+            {
+                audioSource.clip = clip1;
+            }
+            else if (sceneIndex != 0 && SceneManager.GetActiveScene().buildIndex == 0)
+            {
+                audioSource.clip = clip2;
+            }
+            sceneIndex = SceneManager.GetActiveScene().buildIndex;
+        }
+
         if (level == levelIndex + 1)
         {
             foreach (var ghost in GameObject.FindGameObjectsWithTag("Ghost"))
@@ -125,16 +143,15 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public static void SetPlayerIndex(int index)
-    {
-        PlayerController.RobotIndex = index;
-    }
-
-
-
     // TODO REMOVE LATER
     private void Update()
     {
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+        {
+
+        }
+
+
 
         // Reload level like this
         if (Input.GetKeyDown(KeyCode.R))
