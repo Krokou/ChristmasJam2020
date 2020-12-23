@@ -8,6 +8,7 @@ TagManager:
   - AnimatedCharacter
   - Pause
   - Mask
+  - Lightning
   layers:
   - Default
   - TransparentFX

@@ -1131,6 +1131,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PressurePlate (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2561864040982481162, guid: bcd19680d738a7d489ae80984a3a8539, type: 3}
+      propertyPath: door
+      value: 
+      objectReference: {fileID: 707438480}
     - target: {fileID: 8713090376976695269, guid: bcd19680d738a7d489ae80984a3a8539, type: 3}
       propertyPath: m_IsTrigger
       value: 1
@@ -1860,25 +1864,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e478f5bc974cf8b41aa317853ab03f17, type: 3}
---- !u!1 &1485182980 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1932985541040324656, guid: bcd19680d738a7d489ae80984a3a8539, type: 3}
-  m_PrefabInstance: {fileID: 908905957}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1485182984
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1485182980}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4874d9e746a30645ae1f1d709fb08a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  door: {fileID: 707438480}
-  door2: {fileID: 0}
 --- !u!1001 &1488689053
 PrefabInstance:
   m_ObjectHideFlags: 0
