@@ -1,14 +1,18 @@
 fileFormatVersion: 2
-guid: 10be2b72be972e64db46b562186eebb5
+guid: 10aac60c76256db40bb54607ed1419db
 ModelImporter:
   serializedVersion: 20200
-  internalIDToNameTable: []
-  externalObjects:
+  internalIDToNameTable:
   - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Stonewall04
-    second: {fileID: 2100000, guid: aa6fac28e5eaa1e46ad3d6db84e6c2fb, type: 2}
+      74: 540831671374458098
+    second: Lever_Krank_Left.001
+  - first:
+      74: 1837121612158518884
+    second: Lever_Idle.001
+  - first:
+      74: 346546249358993973
+    second: Lever_Krank_Right
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -39,7 +43,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 100
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1

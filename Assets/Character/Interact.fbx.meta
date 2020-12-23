@@ -1,14 +1,12 @@
 fileFormatVersion: 2
-guid: 10be2b72be972e64db46b562186eebb5
+guid: f30861395eb3b2c418bcdfb5256451b1
 ModelImporter:
   serializedVersion: 20200
-  internalIDToNameTable: []
-  externalObjects:
+  internalIDToNameTable:
   - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Stonewall04
-    second: {fileID: 2100000, guid: aa6fac28e5eaa1e46ad3d6db84e6c2fb, type: 2}
+      74: 1701519168366769839
+    second: Interact
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -39,7 +37,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 100
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
