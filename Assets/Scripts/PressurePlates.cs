@@ -30,7 +30,7 @@ public class PressurePlates : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player" || other.gameObject.tag == "Ghost"))
+        if (other.gameObject.tag == "Player")
         {
             door.SetBool("Open", true);
             plate.SetBool("Active", true);
@@ -39,7 +39,7 @@ public class PressurePlates : MonoBehaviour
     }
     void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Player"||other.gameObject.tag == "Ghost")
+        if (other.gameObject.tag == "Player")
         {
             door.SetBool("Open", false);
             plate.SetBool("Active", false);
