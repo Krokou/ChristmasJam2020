@@ -8,7 +8,7 @@ public class PlayerDeath : MonoBehaviour
     {
         print("Bang! Player dead!");
 
-        //play death animation
+        // TODO: play death animation
 
         yield return new WaitForSeconds(1);
 
@@ -25,5 +25,13 @@ public class PlayerDeath : MonoBehaviour
             StartCoroutine("KillPlayer");
         }
         
+    }
+
+    private void FixedUpdate()
+    {
+        if (transform.position.y < -3)
+        {
+            StartCoroutine("KillPlayer");
+        }
     }
 }

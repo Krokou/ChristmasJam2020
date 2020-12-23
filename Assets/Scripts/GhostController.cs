@@ -60,7 +60,7 @@ public class GhostController : MonoBehaviour
                 {
                     case KeyCode.W:
                         // Move
-                        rb.velocity = new Vector3(rb.velocity.x, 0, speed);
+                        rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, speed);
 
                         // Animate
                         if (anim != null)
@@ -79,7 +79,7 @@ public class GhostController : MonoBehaviour
                         break;
                     case KeyCode.S:
                         // Move
-                        rb.velocity = new Vector3(rb.velocity.x, 0, -speed);
+                        rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, -speed);
 
                         // Animate
                         if (anim != null)
@@ -98,7 +98,7 @@ public class GhostController : MonoBehaviour
                         break;
                     case KeyCode.A:
                         // Move
-                        rb.velocity = new Vector3(-speed, 0, rb.velocity.z);
+                        rb.velocity = new Vector3(-speed, rb.velocity.y, rb.velocity.z);
 
                         // Animate
                         if (anim != null)
@@ -117,7 +117,7 @@ public class GhostController : MonoBehaviour
                         break;
                     case KeyCode.D:
                         // Move
-                        rb.velocity = new Vector3(speed, 0, rb.velocity.z);
+                        rb.velocity = new Vector3(speed, rb.velocity.y, rb.velocity.z);
 
                         // Animate
                         if (anim != null)
