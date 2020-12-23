@@ -94,6 +94,19 @@ public class GameManager : MonoBehaviour
             // Load the player
             GameObject player = Instantiate(Resources.Load("Player")) as GameObject;
             player.transform.position = levelSpawns[levelIndex];
+
+            // Check if there are multiple players and delete all others
+            GameObject[] tmpPlayers = GameObject.FindGameObjectsWithTag("Player");
+            if(tmpPlayers.Length > 1)
+            {
+                foreach (var p in tmpPlayers)
+                {
+                    if (p != player)
+                    {
+                        Destroy(p);
+                    }
+                }
+            }
         }
     }
 

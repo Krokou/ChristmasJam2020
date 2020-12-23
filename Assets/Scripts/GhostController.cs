@@ -10,6 +10,8 @@ public class GhostController : MonoBehaviour
     public int ghostIndex;
     public float speed = 3f;
 
+    public bool dead = false;
+
     public Transform tranChar;
     public Animator anim;
 
@@ -51,111 +53,114 @@ public class GhostController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (frame < keys.Count)
+        if (!dead)
         {
-            rb.velocity = Vector3.zero;
-            foreach (var key in keys[frame])
+            if (frame < keys.Count)
             {
-                switch (key)
+                rb.velocity = Vector3.zero;
+                foreach (var key in keys[frame])
                 {
-                    case KeyCode.W:
-                        // Move
-                        rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, speed);
+                    switch (key)
+                    {
+                        case KeyCode.W:
+                            // Move
+                            rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, speed);
 
-                        // Animate
-                        if (anim != null)
-                        {
-                            tranChar.transform.rotation = Quaternion.Euler(0, 0, 0);
-                            if (keys[frame].Contains(KeyCode.A) && !keys[frame].Contains(KeyCode.D))
+                            // Animate
+                            if (anim != null)
                             {
-                                tranChar.transform.rotation = Quaternion.Euler(0, 315, 0);
+                                tranChar.transform.rotation = Quaternion.Euler(0, 0, 0);
+                                if (keys[frame].Contains(KeyCode.A) && !keys[frame].Contains(KeyCode.D))
+                                {
+                                    tranChar.transform.rotation = Quaternion.Euler(0, 315, 0);
+                                }
+                                else if (keys[frame].Contains(KeyCode.D))
+                                {
+                                    tranChar.transform.rotation = Quaternion.Euler(0, 45, 0);
+                                }
                             }
-                            else if (keys[frame].Contains(KeyCode.D))
-                            {
-                                tranChar.transform.rotation = Quaternion.Euler(0, 45, 0);
-                            }
-                        }
 
-                        break;
-                    case KeyCode.S:
-                        // Move
-                        rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, -speed);
+                            break;
+                        case KeyCode.S:
+                            // Move
+                            rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, -speed);
 
-                        // Animate
-                        if (anim != null)
-                        {
-                            tranChar.transform.rotation = Quaternion.Euler(0, 180, 0);
-                            if (keys[frame].Contains(KeyCode.A) && !keys[frame].Contains(KeyCode.D))
+                            // Animate
+                            if (anim != null)
                             {
-                                tranChar.transform.rotation = Quaternion.Euler(0, 225, 0);
+                                tranChar.transform.rotation = Quaternion.Euler(0, 180, 0);
+                                if (keys[frame].Contains(KeyCode.A) && !keys[frame].Contains(KeyCode.D))
+                                {
+                                    tranChar.transform.rotation = Quaternion.Euler(0, 225, 0);
+                                }
+                                else if (keys[frame].Contains(KeyCode.D))
+                                {
+                                    tranChar.transform.rotation = Quaternion.Euler(0, 135, 0);
+                                }
                             }
-                            else if (keys[frame].Contains(KeyCode.D))
-                            {
-                                tranChar.transform.rotation = Quaternion.Euler(0, 135, 0);
-                            }
-                        }
 
-                        break;
-                    case KeyCode.A:
-                        // Move
-                        rb.velocity = new Vector3(-speed, rb.velocity.y, rb.velocity.z);
+                            break;
+                        case KeyCode.A:
+                            // Move
+                            rb.velocity = new Vector3(-speed, rb.velocity.y, rb.velocity.z);
 
-                        // Animate
-                        if (anim != null)
-                        {
-                            tranChar.transform.rotation = Quaternion.Euler(0, 270, 0);
-                            if (keys[frame].Contains(KeyCode.W) && !keys[frame].Contains(KeyCode.S))
+                            // Animate
+                            if (anim != null)
                             {
-                                tranChar.transform.rotation = Quaternion.Euler(0, 315, 0);
+                                tranChar.transform.rotation = Quaternion.Euler(0, 270, 0);
+                                if (keys[frame].Contains(KeyCode.W) && !keys[frame].Contains(KeyCode.S))
+                                {
+                                    tranChar.transform.rotation = Quaternion.Euler(0, 315, 0);
+                                }
+                                else if (keys[frame].Contains(KeyCode.S))
+                                {
+                                    tranChar.transform.rotation = Quaternion.Euler(0, 225, 0);
+                                }
                             }
-                            else if (keys[frame].Contains(KeyCode.S))
-                            {
-                                tranChar.transform.rotation = Quaternion.Euler(0, 225, 0);
-                            }
-                        }
 
-                        break;
-                    case KeyCode.D:
-                        // Move
-                        rb.velocity = new Vector3(speed, rb.velocity.y, rb.velocity.z);
+                            break;
+                        case KeyCode.D:
+                            // Move
+                            rb.velocity = new Vector3(speed, rb.velocity.y, rb.velocity.z);
 
-                        // Animate
-                        if (anim != null)
-                        {
-                            tranChar.transform.rotation = Quaternion.Euler(0, 90, 0);
-                            if (keys[frame].Contains(KeyCode.W) && !keys[frame].Contains(KeyCode.S))
+                            // Animate
+                            if (anim != null)
                             {
-                                tranChar.transform.rotation = Quaternion.Euler(0, 45, 0);
+                                tranChar.transform.rotation = Quaternion.Euler(0, 90, 0);
+                                if (keys[frame].Contains(KeyCode.W) && !keys[frame].Contains(KeyCode.S))
+                                {
+                                    tranChar.transform.rotation = Quaternion.Euler(0, 45, 0);
+                                }
+                                else if (keys[frame].Contains(KeyCode.S))
+                                {
+                                    tranChar.transform.rotation = Quaternion.Euler(0, 135, 0);
+                                }
                             }
-                            else if (keys[frame].Contains(KeyCode.S))
-                            {
-                                tranChar.transform.rotation = Quaternion.Euler(0, 135, 0);
-                            }
-                        }
 
-                        break;
-                    default:
-                        print("Something not right");
-                        break;
+                            break;
+                        default:
+                            print("Something not right");
+                            break;
+                    }
                 }
-            }
-            frame++;
-        }
-        else
-        {
-            rb.velocity = Vector3.zero;
-        }
-        
-        // Animate
-        if (anim != null)
-        {
-            if (rb.velocity != Vector3.zero)
-            {
-                anim.SetBool("Walking", true);
+                frame++;
             }
             else
             {
-                anim.SetBool("Walking", false);
+                rb.velocity = Vector3.zero;
+            }
+
+            // Animate
+            if (anim != null)
+            {
+                if (rb.velocity != Vector3.zero)
+                {
+                    anim.SetBool("Walking", true);
+                }
+                else
+                {
+                    anim.SetBool("Walking", false);
+                }
             }
         }
     }
