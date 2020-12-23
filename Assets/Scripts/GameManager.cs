@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
 
         // Level 3
         GhostManager.AddLevel(2);
-        levelSpawns.Add(new Vector3(-5f, 0f, -9f));
+        levelSpawns.Add(new Vector3(0f, 0f, 0f));
 
         // Level 4
         GhostManager.AddLevel(2);
@@ -151,8 +151,15 @@ public class GameManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.J))
         {
-            levelIndex += 1;
-            LoadLevel(levelIndex);
+            if (levelIndex != 5)
+            {
+                levelIndex += 1;
+                LoadLevel(levelIndex);
+            }
+            else
+            {
+                SceneManager.LoadScene(7);
+            }
         }
     }
 }

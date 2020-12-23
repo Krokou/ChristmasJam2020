@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -39,8 +40,18 @@ public class PlayerController : MonoBehaviour
     {
         if (other.tag == "Finish")
         {
-            GameManager.levelIndex += 1;
-            GameManager.LoadLevel(GameManager.levelIndex);
+            if (GameManager.levelIndex != 5)
+            {
+
+
+                GameManager.levelIndex += 1;
+                GameManager.LoadLevel(GameManager.levelIndex);
+            }
+
+            else
+            {
+                SceneManager.LoadScene(7);
+            }
         }
     }
 
