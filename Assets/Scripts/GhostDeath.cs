@@ -5,25 +5,26 @@ using UnityEngine;
 public class GhostDeath : MonoBehaviour
 {
     private Animator anim;
-    private GameObject robotG;
+
     void Start()
     {
-        robotG = GameObject.FindWithTag("Ghost");
-        anim = robotG.GetComponent<Animator>();
+        anim = gameObject.GetComponentInChildren<Animator>();
     }
-    public IEnumerator KillGhost()
+    public void KillGhost()
     {
-        print("Bang! Ghost dead!");
+        if (anim != null)
+        {
+            anim.SetTrigger("Death");
+            gameObject.GetComponent<GhostController>().dead = true;
+        }
+    }
 
-        // TODO: play death animation
-        anim.SetTrigger("Death");
-
-
-        yield return new WaitForSeconds(1);
-
-        Destroy(gameObject);
-        //jump to game over screen / restart
-        yield return null;
+    private void Update()
+    {
+        if (anim == null)
+        {
+            anim = gameObject.GetComponentInChildren<Animator>();
+        }
     }
 
     private void OnCollisionEnter(Collision col)
@@ -31,7 +32,7 @@ public class GhostDeath : MonoBehaviour
         
         if (col.collider.tag == "Player" || col.collider.tag == "Ghost")
         {
-            StartCoroutine("KillGhost");
+            KillGhost();
         }
         
     }
@@ -40,7 +41,7 @@ public class GhostDeath : MonoBehaviour
     {
         if (transform.position.y < -3)
         {
-            StartCoroutine("KillGhost");
+            KillGhost();
         }
     }
 }

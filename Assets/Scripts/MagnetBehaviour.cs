@@ -65,12 +65,12 @@ public class MagnetBehaviour : MonoBehaviour
         print("Collision");
         if (collision.transform.tag == "Player")
         {
-            collision.gameObject.GetComponent<PlayerDeath>().StartCoroutine("KillPlayer");
+            collision.gameObject.GetComponent<PlayerDeath>().KillPlayer();
             targets.Remove(collision.gameObject);
         }
         else if (collision.transform.tag == "Ghost")
         {
-            collision.gameObject.GetComponent<GhostDeath>().StartCoroutine("KillGhost");
+            collision.gameObject.GetComponent<GhostDeath>().KillGhost();
             targets.Remove(collision.gameObject);
         }
     }

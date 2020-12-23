@@ -5,25 +5,18 @@ using UnityEngine;
 public class PlayerDeath : MonoBehaviour
 {
     private Animator anim;
-    private GameObject robot;
     void Start()
     {
-        robot = GameObject.FindWithTag("AnimatedCharacter");
-        anim = robot.GetComponent<Animator>();
+        anim = gameObject.GetComponentInChildren<Animator>();
     }
-    public IEnumerator KillPlayer()
+    public void KillPlayer()
     {
-        print("Bang! Player dead!");
-
-        // TODO: play death animation
-        anim.SetTrigger("Death");
-
-
-        yield return new WaitForSeconds(1);
-
-        Destroy(gameObject);
-        //jump to game over screen / restart
-        yield return null;
+        if (anim != null)
+        {
+            anim.SetTrigger("Death");
+            gameObject.GetComponent<PlayerController>().dead = true;
+        }
+    
     }
 
     private void OnCollisionEnter(Collision col)
@@ -31,10 +24,18 @@ public class PlayerDeath : MonoBehaviour
         
         if (col.collider.tag == "Ghost")
         {
-            StartCoroutine("KillPlayer");
+            KillPlayer();
 
         }
 
+    }
+
+    private void Update()
+    {
+        if (anim == null)
+        {
+            anim = gameObject.GetComponentInChildren<Animator>();
+        }
     }
 
     private void FixedUpdate()
@@ -42,7 +43,7 @@ public class PlayerDeath : MonoBehaviour
         
         if (transform.position.y < -3)
         {
-            StartCoroutine("KillPlayer");
+            KillPlayer();
         }
     }
 }
