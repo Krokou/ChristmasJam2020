@@ -15,17 +15,16 @@ public class IgnoreColliderStart : MonoBehaviour
 
     private void Start()
     {
+        foreach (var collider in GameObject.FindGameObjectsWithTag("Player"))
+        {
+            Physics.IgnoreCollision(GetComponent<BoxCollider>(), collider.GetComponent<BoxCollider>(), true);
+        }
         foreach (var collider in GameObject.FindGameObjectsWithTag("Ghost"))
         {
-            print(gameObject);
-            print("Can not crash with:");
-            print(collider);
             Physics.IgnoreCollision(GetComponent<BoxCollider>(), collider.GetComponent<BoxCollider>(), true);
         }
         if (tag != "Player")
         {
-            print(gameObject);
-            print("in");
             Physics.IgnoreCollision(GetComponent<BoxCollider>(), GameObject.FindGameObjectWithTag("Player").GetComponent<BoxCollider>(), true);
         }
         //StartCoroutine("Wait");
