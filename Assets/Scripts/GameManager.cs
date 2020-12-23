@@ -15,13 +15,28 @@ public class GameManager : MonoBehaviour
     {
         // Prepare levels here in GhostManager
         // Level 0
+        GhostManager.AddLevel(1);
+        levelSpawns.Add(new Vector3(0f, 0f, 0f));
+
+        // Level 1
+        GhostManager.AddLevel(2);
+        levelSpawns.Add(new Vector3(0f, 0f, 0f));
+
+        // Level 2
+        GhostManager.AddLevel(3);
+        levelSpawns.Add(new Vector3(0f, 0f, 0f));
+
+        // Level 3
+        GhostManager.AddLevel(2);
+        levelSpawns.Add(new Vector3(-5f, 0f, -9f));
+
+        // Level 4
+        GhostManager.AddLevel(2);
+        levelSpawns.Add(new Vector3(0f, 0f, 0f));
+
+        // Level 5
         GhostManager.AddLevel(4);
         levelSpawns.Add(new Vector3(0f, 0f, 0f));
-        
-        // Level 1
-        
-        
-        // Level 2
     }
 
     // reset progress script
