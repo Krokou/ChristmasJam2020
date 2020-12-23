@@ -8,7 +8,7 @@ public class GhostDeath : MonoBehaviour
     {
         print("Bang! Ghost dead!");
 
-        //play death animation
+        // TODO: play death animation
 
         yield return new WaitForSeconds(1);
 
@@ -25,5 +25,13 @@ public class GhostDeath : MonoBehaviour
             StartCoroutine("KillGhost");
         }
         
+    }
+
+    private void FixedUpdate()
+    {
+        if (transform.position.y < -3)
+        {
+            StartCoroutine("KillGhost");
+        }
     }
 }

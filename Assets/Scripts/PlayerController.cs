@@ -61,7 +61,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.W))
         {
             // Movement
-            rb.velocity = new Vector3(rb.velocity.x, 0, speed);
+            rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, speed);
             RecordMovement(KeyCode.W);
 
             // Animation
@@ -82,7 +82,7 @@ public class PlayerController : MonoBehaviour
         else if (Input.GetKey(KeyCode.S))
         {
             // Movement
-            rb.velocity = new Vector3(rb.velocity.x, 0, -speed);
+            rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, -speed);
             RecordMovement(KeyCode.S);
 
             // Animation
@@ -100,11 +100,11 @@ public class PlayerController : MonoBehaviour
                 tranChar.transform.rotation = Quaternion.Slerp(tranChar.transform.rotation, targetRotation, rotationSpeed);
             }
         }
-        else rb.velocity = new Vector3(rb.velocity.x, 0, 0);
+        else rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, 0);
         if (Input.GetKey(KeyCode.A))
         {
             // Movement
-            rb.velocity = new Vector3(-speed, 0, rb.velocity.z);
+            rb.velocity = new Vector3(-speed, rb.velocity.y, rb.velocity.z);
             RecordMovement(KeyCode.A);
 
             // Animation
@@ -125,7 +125,7 @@ public class PlayerController : MonoBehaviour
         else if (Input.GetKey(KeyCode.D))
         {
             // Movement
-            rb.velocity = new Vector3(speed, 0, rb.velocity.z);
+            rb.velocity = new Vector3(speed, rb.velocity.y, rb.velocity.z);
             RecordMovement(KeyCode.D);
 
             // Animation
@@ -143,7 +143,7 @@ public class PlayerController : MonoBehaviour
                 tranChar.transform.rotation = Quaternion.Slerp(tranChar.transform.rotation, targetRotation, rotationSpeed);
             }
         }
-        else rb.velocity = new Vector3(0, 0, rb.velocity.z);
+        else rb.velocity = new Vector3(0, rb.velocity.y, rb.velocity.z);
 
         // Animation
         if (anim != null)
