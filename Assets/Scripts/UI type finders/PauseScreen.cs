@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseScreen : MonoBehaviour
 {
@@ -79,5 +80,6 @@ public class PauseScreen : MonoBehaviour
 
         // TODO Load mainmenu scene
         print("Main Menu scene transition");
+        SceneManager.LoadScene(0);
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class GameManager : MonoBehaviour
     public static int levelIndex = 0;
     public static List<Vector3> levelSpawns = new List<Vector3>();
 
-    private void Start()
+    private void Awake()
     {
         // Prepare levels here in GhostManager
         // Level 0
@@ -21,7 +22,6 @@ public class GameManager : MonoBehaviour
         
         
         // Level 2
-
     }
 
     // reset progress script
@@ -43,48 +43,58 @@ public class GameManager : MonoBehaviour
         RestartLevelWithGhosts();
     }
 
-    // TODO
     public static void RestartLevelWithGhosts()
     {
-        // TODO: Reset level by loading scene again without resetting ghost progress
+        // Reset level by loading scene again without resetting ghost progress
+        
 
         // Remove player and ghosts
-        foreach (var ghost in GameObject.FindGameObjectsWithTag("Ghost"))
-        {
-            Destroy(ghost);
-        }
-        Destroy(GameObject.FindGameObjectWithTag("Player"));
+        
 
         // Spawn them in again
         // Load ghosts
-        for (int i = 0; i < GhostManager.levelData[levelIndex].Count; i++)
-        {
-            GhostManager.GhostData ghost = GhostManager.levelData[levelIndex][i];
+        SceneManager.LoadScene(levelIndex + 1);
+    }
 
-            if (i != PlayerController.RobotIndex && ghost.record.Count != 0)
-            {
-                GameObject newGhost = Instantiate(Resources.Load("Ghost")) as GameObject;
-                newGhost.transform.position = levelSpawns[levelIndex]; 
-                newGhost.GetComponent<GhostController>().ghostIndex = i;
-            }
-        }
-        // Load the keys
-        foreach (var ghost in GameObject.FindGameObjectsWithTag("Ghost"))
+    private void OnLevelWasLoaded(int level)
+    {
+        if (level == levelIndex + 1)
         {
-            try
+            foreach (var ghost in GameObject.FindGameObjectsWithTag("Ghost"))
             {
-                GhostController controller = ghost.GetComponent<GhostController>();
-                controller.LoadKeys(GhostManager.GetGhostData(levelIndex, controller.ghostIndex));
-                controller.Restart();
+                Destroy(ghost);
             }
-            catch
+            Destroy(GameObject.FindGameObjectWithTag("Player"));
+
+            for (int i = 0; i < GhostManager.levelData[levelIndex].Count; i++)
             {
-                print("Error in setting records for all ghosts.");
+                GhostManager.GhostData ghost = GhostManager.levelData[levelIndex][i];
+
+                if (i != PlayerController.RobotIndex && ghost.record.Count != 0)
+                {
+                    GameObject newGhost = Instantiate(Resources.Load("Ghost")) as GameObject;
+                    newGhost.transform.position = levelSpawns[levelIndex];
+                    newGhost.GetComponent<GhostController>().ghostIndex = i;
+                }
             }
+            // Load the keys
+            foreach (var ghost in GameObject.FindGameObjectsWithTag("Ghost"))
+            {
+                try
+                {
+                    GhostController controller = ghost.GetComponent<GhostController>();
+                    controller.LoadKeys(GhostManager.GetGhostData(levelIndex, controller.ghostIndex));
+                    controller.Restart();
+                }
+                catch
+                {
+                    print("Error in setting records for all ghosts.");
+                }
+            }
+            // Load the player
+            GameObject player = Instantiate(Resources.Load("Player")) as GameObject;
+            player.transform.position = levelSpawns[levelIndex];
         }
-        // Load the player
-        GameObject player = Instantiate(Resources.Load("Player")) as GameObject;
-        player.transform.position = levelSpawns[levelIndex];
     }
 
     public static void SetPlayerIndex(int index)
@@ -94,7 +104,7 @@ public class GameManager : MonoBehaviour
 
 
 
-    // REMOVE LATER
+    // TODO REMOVE LATER
     private void Update()
     {
         // Save ghost recording and start next ghost recording. Moved to GhostManager for actual game. This is just for testing.

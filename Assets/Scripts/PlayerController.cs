@@ -42,6 +42,8 @@ public class PlayerController : MonoBehaviour
 
         anim = GetComponentInChildren<Animator>();
         tranChar = anim.transform;
+
+        transform.position = GameManager.levelSpawns[GameManager.levelIndex];
     }
 
     private void Update()
