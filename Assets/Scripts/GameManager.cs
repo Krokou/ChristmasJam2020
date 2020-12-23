@@ -148,5 +148,11 @@ public class GameManager : MonoBehaviour
         {
             RestartLevelWithGhosts();
         }
+
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            levelIndex += 1;
+            LoadLevel(levelIndex);
+        }
     }
 }
