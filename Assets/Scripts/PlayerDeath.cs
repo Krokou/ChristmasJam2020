@@ -11,6 +11,7 @@ public class PlayerDeath : MonoBehaviour
         print("Bang! Player dead!");
 
         // TODO: play death animation
+        anim.SetTrigger("Death");
 
 
         yield return new WaitForSeconds(1);
@@ -26,7 +27,6 @@ public class PlayerDeath : MonoBehaviour
         if (col.collider.tag == "Ghost")
         {
             StartCoroutine("KillPlayer");
-            anim.SetBool("Death", true);
 
         }
 
@@ -34,6 +34,7 @@ public class PlayerDeath : MonoBehaviour
 
     private void FixedUpdate()
     {
+        
         if (transform.position.y < -3)
         {
             StartCoroutine("KillPlayer");

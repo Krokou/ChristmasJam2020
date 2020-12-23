@@ -53,7 +53,6 @@ public class AnimationTesting : MonoBehaviour
         {
             Alive();
         }
-
         if (Input.GetKeyDown(KeyCode.A))
         {
             OpenDoor();
@@ -66,7 +65,5 @@ public class AnimationTesting : MonoBehaviour
         {
             Spring();
         }
-        //doorAnim.ResetTrigger("Open");
-        //doorAnim.ResetTrigger("Close");
     }
 }

@@ -11,7 +11,9 @@ public class GhostDeath : MonoBehaviour
         print("Bang! Ghost dead!");
 
         // TODO: play death animation
-        anim.SetBool("Death", true);
+        anim.SetTrigger("Death");
+
+
         yield return new WaitForSeconds(1);
 
         Destroy(gameObject);
