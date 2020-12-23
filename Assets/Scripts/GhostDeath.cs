@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class GhostDeath : MonoBehaviour
 {
+    public Animator anim;
+    
     public IEnumerator KillGhost()
     {
         print("Bang! Ghost dead!");
 
         // TODO: play death animation
-
+        anim.SetBool("Death", true);
         yield return new WaitForSeconds(1);
 
         Destroy(gameObject);

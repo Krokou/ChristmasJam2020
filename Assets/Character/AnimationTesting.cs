@@ -11,7 +11,7 @@ public class AnimationTesting : MonoBehaviour
 
     void Death()
     {
-        anim.SetTrigger("Death_Electro");
+        anim.SetBool("Death", true);
         electro.Play();
     }
 
