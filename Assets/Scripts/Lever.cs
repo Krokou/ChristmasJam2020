@@ -6,9 +6,8 @@ public class Lever : MonoBehaviour
 {
     public Animator anim;
     public Animator door;
-    private int counter = 0;
 
-    private bool inTrigger = false;
+    private int counter = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,31 +18,21 @@ public class Lever : MonoBehaviour
     void FixedUpdate()
     {
         
-        if (Input.GetKeyDown(KeyCode.E) && inTrigger == true)
-        {
-            print("E");
-            counter++;
-            anim.SetTrigger("Turn");
-            if (counter % 2 == 0)
-            {
-                door.SetBool("Open", false);
-            }
-            else if (counter % 2 != 0)
-            {
-                door.SetBool("Open", true);
-            }
-        }
-        
     }
 
     void OnTriggerEnter(Collider other)
     {
-        print("TriggerENTER");
-        inTrigger = true;
-        
+        counter++;
+        anim.SetTrigger("Turn");
+        if (counter % 2 == 0)
+        {
+            door.SetBool("Open", false);
+        }
+        else if (counter % 2 != 0)
+        {
+            door.SetBool("Open", true);
+        }
+
     }
-    void OnTriggerExit(Collider other)
-    {
-        inTrigger = false;
-    }
+    
 }

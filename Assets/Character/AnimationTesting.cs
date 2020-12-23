@@ -56,7 +56,7 @@ public class AnimationTesting : MonoBehaviour
     void Update()
     {
 
-        anim.ResetTrigger("Death_Electro");
+        anim.ResetTrigger("Death");
         anim.ResetTrigger("Alive");
         if (Input.GetKeyDown(KeyCode.E))
         {
