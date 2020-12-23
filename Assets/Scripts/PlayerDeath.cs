@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class PlayerDeath : MonoBehaviour
 {
+    public Animator anim;
+    
     public IEnumerator KillPlayer()
     {
         print("Bang! Player dead!");
 
         // TODO: play death animation
+
 
         yield return new WaitForSeconds(1);
 
@@ -23,8 +26,10 @@ public class PlayerDeath : MonoBehaviour
         if (col.collider.tag == "Ghost")
         {
             StartCoroutine("KillPlayer");
+            anim.SetBool("Death", true);
+
         }
-        
+
     }
 
     private void FixedUpdate()

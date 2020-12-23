@@ -3408,6 +3408,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6f47f22379e71c46845f3ea082bdb0a, type: 3}
+--- !u!95 &2024873980 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 686466341113843820, guid: 72e68c5580f35324399ddf49d894f495, type: 3}
+  m_PrefabInstance: {fileID: 2071046135}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2036098580
 GameObject:
   m_ObjectHideFlags: 0
@@ -3577,6 +3582,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 389199441, guid: 72e68c5580f35324399ddf49d894f495, type: 3}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 2024873980}
     - target: {fileID: 72058806456139954, guid: 72e68c5580f35324399ddf49d894f495, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.9993154
