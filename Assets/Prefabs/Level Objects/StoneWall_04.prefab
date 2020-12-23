@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2233447914040594920}
   - component: {fileID: 2175056504510803495}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: StoneWall_04
-  m_TagString: Untagged
+  m_TagString: Mask
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -111,6 +111,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 10be2b72be972e64db46b562186eebb5, type: 3}
       propertyPath: m_Name
       value: StoneWall04
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 10be2b72be972e64db46b562186eebb5, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 10be2b72be972e64db46b562186eebb5, type: 3}
+      propertyPath: m_TagString
+      value: Mask
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 10be2b72be972e64db46b562186eebb5, type: 3}
