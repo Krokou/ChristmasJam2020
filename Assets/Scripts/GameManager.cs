@@ -83,10 +83,12 @@ public class GameManager : MonoBehaviour
             if (sceneIndex == 0 && SceneManager.GetActiveScene().buildIndex == 1)
             {
                 audioSource.clip = clip1;
+                audioSource.Play();
             }
             else if (sceneIndex != 0 && SceneManager.GetActiveScene().buildIndex == 0)
             {
                 audioSource.clip = clip2;
+                audioSource.Play();
             }
             sceneIndex = SceneManager.GetActiveScene().buildIndex;
         }
