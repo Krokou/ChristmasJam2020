@@ -4,17 +4,36 @@ using UnityEngine;
 
 public class IgnoreColliderStart : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.5f);
+        //GameManager.startFinished = true;
+        yield return null;
+    }
+
+
+    private void Start()
     {
         foreach (var collider in GameObject.FindGameObjectsWithTag("Ghost"))
         {
+            print(gameObject);
+            print("Can not crash with:");
+            print(collider);
             Physics.IgnoreCollision(GetComponent<BoxCollider>(), collider.GetComponent<BoxCollider>(), true);
         }
         if (tag != "Player")
         {
+            print(gameObject);
+            print("in");
             Physics.IgnoreCollision(GetComponent<BoxCollider>(), GameObject.FindGameObjectWithTag("Player").GetComponent<BoxCollider>(), true);
         }
+        //StartCoroutine("Wait");
+    }
+
+    private void Awake()
+    {
+        //GameManager.startFinished = false;
     }
 
     // Update is called once per frame
@@ -25,6 +44,7 @@ public class IgnoreColliderStart : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        print("Out");
         if(other.tag == "Respawn")
         {
             foreach (var collider in GameObject.FindGameObjectsWithTag("Ghost"))

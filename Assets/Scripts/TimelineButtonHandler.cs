@@ -38,8 +38,8 @@ public class TimelineButtonHandler : MonoBehaviour
         }
 
         // Move self to right position depending on state and number of max ghosts for current level
-        int tmp = (GhostManager.levelData[GameManager.levelIndex].Count - 1) * 40;
-        GetComponent<RectTransform>().localPosition = new Vector3(-tmp + (buttonIndex * 80), 0, 0);
+        int tmp = (GhostManager.levelData[GameManager.levelIndex].Count - 1) * 60;
+        GetComponent<RectTransform>().localPosition = new Vector3(-tmp + (buttonIndex * 120), 225, 0);
     }
 
     private bool IsNextTimeLine()

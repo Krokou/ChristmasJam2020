@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    //public static bool startFinished = false;
+    //public static bool startFinished2 = true;
+
     public static int levelIndex = 0;
     public static List<Vector3> levelSpawns = new List<Vector3>();
 
@@ -12,9 +15,8 @@ public class GameManager : MonoBehaviour
         // Prepare levels here in GhostManager
         // Level 0
         GhostManager.AddLevel(4);
-        levelSpawns.Add(new Vector3(-4f, 0f, -4f));
+        levelSpawns.Add(new Vector3(0f, 0f, 0f));
         
-
         // Level 1
         
         

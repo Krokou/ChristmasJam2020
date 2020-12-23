@@ -19,9 +19,11 @@ public class PlayerDeath : MonoBehaviour
 
     private void OnCollisionEnter(Collision col)
     {
+        
         if (col.collider.tag == "Ghost")
         {
             StartCoroutine("KillPlayer");
         }
+        
     }
 }

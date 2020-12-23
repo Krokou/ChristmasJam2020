@@ -55,6 +55,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        
         recordedMovement.Add(new List<KeyCode>());
 
         if (Input.GetKey(KeyCode.W))
@@ -159,4 +160,5 @@ public class PlayerController : MonoBehaviour
 
         frame++;
     }
+    
 }

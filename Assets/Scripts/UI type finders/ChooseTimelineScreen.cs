@@ -14,7 +14,7 @@ public class ChooseTimelineScreen : MonoBehaviour
         {
             GameObject ghostButton = Instantiate(ghostButtonPrefab) as GameObject;
             ghostButton.transform.SetParent(panel.transform);
-            ghostButton.transform.localScale = new Vector3(1, 1, 1);
+            ghostButton.transform.localScale = new Vector3(5, 5, 5);
             ghostButton.GetComponent<TimelineButtonHandler>().buttonIndex = i;
             ghostButton.SetActive(false);
             ghostButton.SetActive(true);

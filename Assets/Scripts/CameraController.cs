@@ -27,6 +27,7 @@ public class CameraController : MonoBehaviour
 
     private void FixedUpdate()
     {
+ 
         if (GameObject.FindGameObjectWithTag("Player") != null)
         {
             target = GameObject.FindGameObjectWithTag("Player").transform.position;
@@ -38,4 +39,5 @@ public class CameraController : MonoBehaviour
         }
         FollowPlayer();
     }
+    
 }
