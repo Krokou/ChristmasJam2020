@@ -4,14 +4,21 @@ using UnityEngine;
 
 public class GhostDeath : MonoBehaviour
 {
-    public Animator anim;
-    
+    private Animator anim;
+    private GameObject robotG;
+    void Start()
+    {
+        robotG = GameObject.FindWithTag("Ghost");
+        anim = robotG.GetComponent<Animator>();
+    }
     public IEnumerator KillGhost()
     {
         print("Bang! Ghost dead!");
 
         // TODO: play death animation
-        anim.SetBool("Death", true);
+        anim.SetTrigger("Death");
+
+
         yield return new WaitForSeconds(1);
 
         Destroy(gameObject);

@@ -4,13 +4,19 @@ using UnityEngine;
 
 public class PlayerDeath : MonoBehaviour
 {
-    public Animator anim;
-    
+    private Animator anim;
+    private GameObject robot;
+    void Start()
+    {
+        robot = GameObject.FindWithTag("AnimatedCharacter");
+        anim = robot.GetComponent<Animator>();
+    }
     public IEnumerator KillPlayer()
     {
         print("Bang! Player dead!");
 
         // TODO: play death animation
+        anim.SetTrigger("Death");
 
 
         yield return new WaitForSeconds(1);
@@ -26,7 +32,6 @@ public class PlayerDeath : MonoBehaviour
         if (col.collider.tag == "Ghost")
         {
             StartCoroutine("KillPlayer");
-            anim.SetBool("Death", true);
 
         }
 
@@ -34,6 +39,7 @@ public class PlayerDeath : MonoBehaviour
 
     private void FixedUpdate()
     {
+        
         if (transform.position.y < -3)
         {
             StartCoroutine("KillPlayer");

@@ -19,6 +19,19 @@ public class AnimationTesting : MonoBehaviour
     {
         anim.SetTrigger("Alive");
     }
+    void Walking()
+    {
+        anim.SetBool("Walking", true);
+    }
+    void Stop()
+    {
+        anim.SetBool("Walking", false);
+    }
+    void Interact()
+    {
+        anim.SetTrigger("Interact");
+    }
+
 
     void CloseDoor()
     {
@@ -53,20 +66,17 @@ public class AnimationTesting : MonoBehaviour
         {
             Alive();
         }
-
         if (Input.GetKeyDown(KeyCode.A))
         {
-            OpenDoor();
+            Walking();
         }
         if (Input.GetKeyDown(KeyCode.S))
         {
-            CloseDoor();
+            Stop();
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
-            Spring();
+            Interact();
         }
-        //doorAnim.ResetTrigger("Open");
-        //doorAnim.ResetTrigger("Close");
     }
 }
